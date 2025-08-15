@@ -1,19 +1,20 @@
 class Solution:
     def findAnagrams(self, s: str, p: str) -> List[int]:
-        k=len(p)
-        p=''.join(sorted(p))
-        f={}
-        for i in range(len(s)-k+1):
-            f[i]=s[i:i+k]
-        l=[]
-        for key,values in f.items():
-            if p=="".join(sorted(values)):
-                l.append(key)
-        return l
-        
+        k = len(p)
+        p_count = Counter(p)
+        s_count = Counter(s[:k-1])
+        res = []
 
-        
+        for i in range(k-1, len(s)):
+            s_count[s[i]] += 1
+            
+            
+            if s_count == p_count:
+                res.append(i - k + 1)
+            
+           
+            s_count[s[i - k + 1]] -= 1
+            if s_count[s[i - k + 1]] == 0:
+                del s_count[s[i - k + 1]]
 
-
-
-        
+        return res
