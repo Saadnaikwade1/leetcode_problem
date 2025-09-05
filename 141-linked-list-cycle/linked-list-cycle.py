@@ -9,7 +9,7 @@ class Solution:
         if head is None:
             return False
         else:
-            
+
 
             fast=head 
             slow=head
