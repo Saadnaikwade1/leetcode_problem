@@ -5,13 +5,21 @@
 
 n=int(input())
 m=n
-sum=0
-pow=len(str(n))
+total=0
+power=len(str(n))
 while m!=0:
-    sum=sum+((m%10)**pow)
+    total=total+((m%10)**power)
     m=m//10
-if n==sum:
+if n==total:
     print("amstrong number")
 else:
     print("no")
 
+# Time & Space Complexity
+# Operation              	    Complexity
+# Loop through digits	    O(d) (d = number of digits)
+# Space used	            O(1) (constant, no extra storage)
+
+# So:
+# Time Complexity: O(log₁₀n) or O(d)
+# Space Complexity: O(1)
